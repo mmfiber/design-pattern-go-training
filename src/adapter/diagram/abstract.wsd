@@ -1,0 +1,20 @@
+@startuml
+interface Target {
+  {method} targetMethod1
+  {method} targetMethod2
+}
+class Adapter {
+  adaptee
+  {method} targetMethod1
+  {method} targetMethod2
+}
+class Adaptee {
+  {method} methodA
+  {method} methodB
+  {method} methodC
+}
+
+Client -> Target : uses
+Target <|.. Adapter
+Adapter o.> Adaptee
+@enduml

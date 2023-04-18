@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"github.com/manifoldco/promptui"
+	"github.com/mmfiber/design-pattern-go-training/src/adapter"
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
 )
 
@@ -21,7 +22,10 @@ type ExecuterItems struct {
 
 func main() {
 	items := []ExecuterItems{}
-	executers := []Executer{iterator.NewExecuter()}
+	executers := []Executer{
+		iterator.NewExecuter(),
+		adapter.NewExecuter(),
+	}
 	for idx, executer := range executers {
 		items = append(items, ExecuterItems{idx, executer.Label()})
 	}
