@@ -1,0 +1,16 @@
+@startuml
+abstract Abstract {
+  {method} method1
+  {method} method2
+  {method} method3
+  {method} templateMethod
+}
+class Concrete {
+  {method} method1
+  {method} method2
+  {method} method3
+}
+
+Main->Concrete: call templateMethod
+Concrete --|> Abstract
+@enduml
