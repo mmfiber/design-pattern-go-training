@@ -1,0 +1,24 @@
+@startuml
+abstract Creator {
+  {method} create
+  {method} {abstract} factoryMethod
+}
+abstract Product {
+  {method} method1
+  {method} method2
+  {method} method3
+}
+class ConcreteCreator {
+  {method} factoryMethod
+}
+class ConcreteProduct {
+  {method} method1
+  {method} method2
+  {method} method3
+}
+
+Creator -> Product : creates
+Creator <|-- ConcreteCreator
+Product <|-- ConcreteProduct
+ConcreteCreator -> ConcreteProduct : creates
+@enduml

@@ -7,6 +7,7 @@ import (
 
 	"github.com/manifoldco/promptui"
 	"github.com/mmfiber/design-pattern-go-training/src/adapter"
+	"github.com/mmfiber/design-pattern-go-training/src/factorymethod"
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
 )
 
@@ -25,6 +26,7 @@ func main() {
 	executers := []Executer{
 		iterator.NewExecuter(),
 		adapter.NewExecuter(),
+		factorymethod.NewExecuter(),
 	}
 	for idx, executer := range executers {
 		items = append(items, ExecuterItems{idx, executer.Label()})

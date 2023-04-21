@@ -1,0 +1,24 @@
+@startuml
+abstract Factory {
+  {method} Create
+  {method} {abstract} CreateProduct
+  {method} {abstract} RegisterProduct
+}
+abstract Product {
+  {method} {abstract} Use
+}
+class IDCardFactory {
+  owners
+  {method} CreateProduct
+  {method} RegisterProduct
+}
+class IDCardProduct {
+  owner
+  {method} Use
+}
+
+Factory -> Product : creates
+Factory <|-- IDCardFactory
+Product <|-- IDCardProduct
+IDCardFactory -> IDCardProduct : creates
+@enduml
