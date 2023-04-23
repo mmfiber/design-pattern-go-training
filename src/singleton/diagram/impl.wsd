@@ -1,0 +1,16 @@
+@startuml
+class User {
+  id
+  name
+}
+interface DBClient {
+  {method} GetUser
+}
+class MySqlDBClient {
+  {method} GetUser
+}
+
+Main -> DBClient: getDBClient(constructor)
+DBClient <|.. MySqlDBClient
+MySqlDBClient -> User: uses
+@enduml
