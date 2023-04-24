@@ -35,6 +35,7 @@ func main() {
 			Inactive: "  {{ .Label | cyan }}",
 			Selected: "{{ .Label | faint }}",
 		},
+		Size: len(executers),
 	}
 
 	for {
