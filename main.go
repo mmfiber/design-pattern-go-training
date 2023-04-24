@@ -9,6 +9,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/exit"
 	"github.com/mmfiber/design-pattern-go-training/src/factorymethod"
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
+	"github.com/mmfiber/design-pattern-go-training/src/prototype"
 	"github.com/mmfiber/design-pattern-go-training/src/singleton"
 )
 
@@ -23,6 +24,7 @@ func main() {
 		adapter.NewExecuter(),
 		factorymethod.NewExecuter(),
 		singleton.NewExecuter(),
+		prototype.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{

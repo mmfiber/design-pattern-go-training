@@ -1,0 +1,23 @@
+@startuml
+interface Inode {
+  {method} print
+  {method} Clone
+}
+
+class File {
+  name
+  {method} print
+  {method} Clone: Inode
+}
+
+class Folder {
+  name
+  children: Inode[]
+  {method} print
+  {method} Clone: Inode
+}
+
+Client -> Inode : uses
+Inode <|-- File
+Inode <|-- Folder
+@enduml
