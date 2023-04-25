@@ -1,0 +1,35 @@
+@startuml
+interface Builder {
+  {method} makeTitle
+	{method} makeString
+	{method} makeItems
+	{method} build
+}
+class TextBuilder {
+  sb strings.Builder
+  {method} makeTitle
+	{method} makeString
+	{method} makeItems
+	{method} build
+	{method} getResult
+}
+class HTMLBuilder {
+  sb strings.Builder
+  {method} makeTitle
+	{method} makeString
+	{method} makeItems
+	{method} build
+	{method} getResult
+}
+class Director {
+  builder Builder
+  {method} construct
+}
+
+Main -> Director : uses
+Main -> TextBuilder : getResult
+Main -> HTMLBuilder : getResult
+Director o-> Builder
+Builder <|.. TextBuilder
+Builder <|.. HTMLBuilder
+@enduml

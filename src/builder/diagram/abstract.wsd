@@ -1,0 +1,22 @@
+@startuml
+interface Builder {
+  {method} build1
+  {method} build2
+  {method} build3
+}
+class ConcreteBuilder {
+  {method} build1
+  {method} build2
+  {method} build3
+  {method} getConstructResult
+}
+class Director {
+  builder Builder
+  {method} construct
+}
+
+Client -> Director : uses
+Client -> ConcreteBuilder : uses
+Director o-> Builder
+Builder <|.. ConcreteBuilder
+@enduml
