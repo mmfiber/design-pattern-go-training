@@ -1,0 +1,19 @@
+@startuml
+abstract Btn {
+  {method} {abstract} Click
+}
+abstract UIFactory {
+  {method} {abstract} CreateBtn
+}
+class MacBtn {
+  {method} Click
+}
+class MacUIFactory {
+  {method} CreateBtn
+}
+
+UIFactory -> Btn : CreateBtn
+MacUIFactory -> MacBtn : CreateBtn
+Btn <|-- MacBtn
+UIFactory <|-- MacUIFactory
+@enduml

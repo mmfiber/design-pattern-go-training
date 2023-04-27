@@ -1,0 +1,19 @@
+@startuml
+abstract Btn {
+  {method} {abstract} Click
+}
+abstract UIFactory {
+  {method} {abstract} CreateBtn
+}
+class WindowsBtn {
+  {method} Click
+}
+class WindowsUIFactory {
+  {method} CreateBtn
+}
+
+UIFactory -> Btn : CreateBtn
+WindowsUIFactory -> WindowsBtn : CreateBtn
+Btn <|-- WindowsBtn
+UIFactory <|-- WindowsUIFactory
+@enduml

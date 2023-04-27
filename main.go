@@ -5,6 +5,7 @@ import (
 	"log"
 
 	"github.com/manifoldco/promptui"
+	"github.com/mmfiber/design-pattern-go-training/src/abstractfactory"
 	"github.com/mmfiber/design-pattern-go-training/src/adapter"
 	"github.com/mmfiber/design-pattern-go-training/src/builder"
 	"github.com/mmfiber/design-pattern-go-training/src/exit"
@@ -27,6 +28,7 @@ func main() {
 		singleton.NewExecuter(),
 		prototype.NewExecuter(),
 		builder.NewExecuter(),
+		abstractfactory.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{
