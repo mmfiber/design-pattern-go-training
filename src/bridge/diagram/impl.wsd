@@ -1,0 +1,36 @@
+@startuml
+interface PrintableComputer {
+  Print()
+  SetPrinter(Printer)
+}
+class  Windows {
+  Print()
+}
+class  Mac {
+  Print()
+}
+class Epson {
+  PrintFile()
+}
+class Hp {
+  PrintFile()
+}
+
+frame Bridge #aliceblue;line:blue;line.dotted;text:blue {
+  class AbstractPrintableComputer {
+    printer Printer
+    SetPrinter(printer Printer)
+  }
+  interface Printer {
+    PrintFile()
+  }
+}
+
+AbstractPrintableComputer o-right-> Printer
+Windows -up-|> AbstractPrintableComputer
+Windows .down.|> PrintableComputer
+Mac -up-|> AbstractPrintableComputer
+Mac .down.|> PrintableComputer
+Epson .up.|> Printer
+Hp .up.|> Printer
+@enduml

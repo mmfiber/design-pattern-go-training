@@ -1,0 +1,27 @@
+@startuml
+class RefinedAbstraction << not necessary >> {
+  {method} refinedMethod1
+  {method} refinedMethod2
+}
+class ConcreteImplementer {
+  {method} implMethodX
+  {method} implMethodY
+}
+
+frame Bridge #aliceblue;line:blue;line.dotted;text:blue {
+  class Abstraction {
+    impl Implementer
+    {method} method1
+    {method} method2
+    {method} method3
+  }
+  interface Implementer {
+    {method} implMethodX
+    {method} implMethodY
+  }
+}
+
+Abstraction o-right-> Implementer
+RefinedAbstraction -up-|> Abstraction
+ConcreteImplementer .up.|> Implementer
+@enduml
