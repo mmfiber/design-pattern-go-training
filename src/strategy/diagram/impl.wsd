@@ -1,0 +1,19 @@
+@startuml
+class Navigator {
+  strategy RouteStrategy
+  {method} Route
+}
+interface RouteStrategy {
+  {method} Route
+}
+class WalkingStrategy {
+  {method} Route
+}
+class PublicTransportStrategy {
+  {method} Route
+}
+
+Navigator o-right-> RouteStrategy
+WalkingStrategy .up.|> RouteStrategy
+PublicTransportStrategy .up.|> RouteStrategy
+@enduml

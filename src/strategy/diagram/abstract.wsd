@@ -1,0 +1,21 @@
+@startuml
+class Context {
+  strategy Strategy
+  {method} contextMethod
+}
+interface Strategy {
+  {method} strategyMethod
+}
+class ConcreteStrategy1 {
+  {method} strategyMethod
+}
+class ConcreteStrategy2 {
+  {method} strategyMethod
+}
+
+hide Context circle
+
+Context o-right-> Strategy
+ConcreteStrategy1 .up.|> Strategy
+ConcreteStrategy2 .up.|> Strategy
+@enduml

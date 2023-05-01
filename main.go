@@ -14,6 +14,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
 	"github.com/mmfiber/design-pattern-go-training/src/prototype"
 	"github.com/mmfiber/design-pattern-go-training/src/singleton"
+	"github.com/mmfiber/design-pattern-go-training/src/strategy"
 )
 
 type Executer interface {
@@ -31,6 +32,7 @@ func main() {
 		builder.NewExecuter(),
 		abstractfactory.NewExecuter(),
 		bridge.NewExecuter(),
+		strategy.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{
