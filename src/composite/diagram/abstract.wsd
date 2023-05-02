@@ -1,0 +1,25 @@
+@startuml
+interface Component {
+  {method} method1
+  {method} method2
+}
+class Leaf {
+  {method} method1
+  {method} method2
+}
+class Composite {
+  childeren Component[]
+  {method} method1
+  {method} method2
+  add(c Component)
+  remove(c Component)
+}
+
+class Client {}
+hide Client circle
+
+Client -right-> Component : uses
+Leaf .up.|> Component
+Composite .up.|> Component
+Composite::children o-up-|> Component::method1
+@enduml

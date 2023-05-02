@@ -9,6 +9,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/adapter"
 	"github.com/mmfiber/design-pattern-go-training/src/bridge"
 	"github.com/mmfiber/design-pattern-go-training/src/builder"
+	"github.com/mmfiber/design-pattern-go-training/src/composite"
 	"github.com/mmfiber/design-pattern-go-training/src/exit"
 	"github.com/mmfiber/design-pattern-go-training/src/factorymethod"
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
@@ -33,6 +34,7 @@ func main() {
 		abstractfactory.NewExecuter(),
 		bridge.NewExecuter(),
 		strategy.NewExecuter(),
+		composite.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{

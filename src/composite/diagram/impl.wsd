@@ -1,0 +1,22 @@
+@startuml
+interface Component {
+  {method} Operation
+}
+class Leaf {
+  {method} Operation
+}
+class Composite {
+  childeren Component[]
+  {method} Operation
+  Add(c Component)
+  Remove(c Component)
+}
+
+class main {}
+hide main circle
+
+main -right-> Component : uses
+Leaf .up.|> Component
+Composite .up.|> Component
+Composite::children o-up-|> Component::Operation
+@enduml
