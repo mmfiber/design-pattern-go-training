@@ -1,0 +1,29 @@
+@startuml
+skinparam linetype ortho
+interface Component {
+  {method} method1
+  {method} method2
+  {method} method3
+}
+class ConcreteComponent {
+  {method} method1
+  {method} method2
+  {method} method3
+}
+abstract Decorator {
+  component Component
+  {method} {abstract} method1
+  {method} {abstract} method2
+  {method} {abstract} method3
+}
+class ConcreteDecorator {
+  {method} method1
+  {method} method2
+  {method} method3
+}
+
+Decorator::component o-up-> Component
+ConcreteComponent .up.|> Component
+ConcreteDecorator -up-|> Decorator
+Decorator .up.|>Component
+@enduml

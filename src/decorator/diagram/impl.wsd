@@ -1,0 +1,44 @@
+@startuml
+skinparam linetype ortho
+interface Display {
+  {method} GetColumns
+  {method} GetRows
+  {method} GetRowText
+}
+class StringDisplay {
+  value string
+  {method} GetColumns
+  {method} GetRows
+  {method} GetRowText
+}
+abstract Border {
+  display Display
+  {method} GetColumns
+  {method} GetRows
+  {method} GetRowText
+}
+class SideBorder {
+  borderChar string
+  {method} GetColumns
+  {method} GetRows
+  {method} GetRowText
+}
+class FullBorder {
+  {method} GetColumns
+  {method} GetRows
+  {method} GetRowText
+  {method} MakeLine
+}
+
+class main {
+  show(display Display)
+}
+hide main circle
+
+main -right-> Display: show
+Border::display o-up-> Display
+StringDisplay .up.|> Display
+SideBorder -up-|> Border
+FullBorder -up-|> Border
+Border .up.|> Display
+@enduml
