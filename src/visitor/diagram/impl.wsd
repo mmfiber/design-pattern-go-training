@@ -1,0 +1,35 @@
+@startuml
+skinparam linetype line
+interface Visitor {
+  {method} VisitForSquare(Square)
+  {method} VisitForCircle(Circle)
+  {method} VisitForRectangle(Rectangle)
+}
+class AreaCalculator {
+  {method} VisitForSquare(Square)
+  {method} VisitForCircle(Circle)
+  {method} VisitForRectangle(Rectangle)
+}
+interface Shape {
+  {method} Accept(Visitor)
+}
+class Rectangle {
+  l float64
+  b float64
+  {method} Accept(Visitor)
+}
+class Square {
+  size float64
+  {method} Accept(Visitor)
+}
+class Circle {
+  radius float64
+  {method} Accept(Visitor)
+}
+
+AreaCalculator .up.|> Visitor
+Shape -left-> Visitor: call VistXXX
+Square .up.|> Shape
+Circle .up.|> Shape
+Rectangle .up.|> Shape
+@enduml

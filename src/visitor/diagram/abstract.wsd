@@ -1,0 +1,33 @@
+@startuml
+skinparam linetype line
+interface Visitor {
+  {method} visit(ConcreteElementA)
+  {method} visit(ConcreteElementB)
+}
+class ConcreteVisitor {
+  {method} visit(ConcreteElementA)
+  {method} visit(ConcreteElementB)
+}
+interface Element {
+  {method} accept(Visitor)
+}
+class ConcreteElementB {
+  {method} accept(Visitor)
+}
+class ConcreteElementA {
+  {method} accept(Visitor)
+}
+
+' class Client {
+'   {method} element.accept(ConcreteVisitor)
+' }
+' hide Client circle
+
+' Client -down-> Element
+' Client --down-> ConcreteVisitor
+
+ConcreteVisitor .up.|> Visitor
+Element -left-> Visitor: call vist
+ConcreteElementA .up.|> Element
+ConcreteElementB .up.|> Element
+@enduml
