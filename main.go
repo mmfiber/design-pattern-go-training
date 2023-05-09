@@ -9,6 +9,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/adapter"
 	"github.com/mmfiber/design-pattern-go-training/src/bridge"
 	"github.com/mmfiber/design-pattern-go-training/src/builder"
+	"github.com/mmfiber/design-pattern-go-training/src/chainofresponsibility"
 	"github.com/mmfiber/design-pattern-go-training/src/composite"
 	"github.com/mmfiber/design-pattern-go-training/src/decorator"
 	"github.com/mmfiber/design-pattern-go-training/src/exit"
@@ -39,6 +40,7 @@ func main() {
 		composite.NewExecuter(),
 		decorator.NewExecuter(),
 		visitor.NewExecuter(),
+		chainofresponsibility.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{

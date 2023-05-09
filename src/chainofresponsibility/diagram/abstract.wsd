@@ -1,0 +1,14 @@
+@startuml
+abstract Handler {
+  next Handler
+  {method} {abstract} request
+}
+class ConcreteHandler {
+  {method} request
+}
+class Client{}
+hide Client circle
+
+Client -right-> Handler: uses
+ConcreteHandler -up-|> Handler
+@enduml

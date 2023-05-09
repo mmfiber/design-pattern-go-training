@@ -1,0 +1,16 @@
+@startuml
+interface Handler {
+  {method} handle
+}
+class ConcreteHandler {
+  id string
+  {method} next() Handler
+  {method} setNext(Handler)
+  {method} handle()
+}
+class Client{}
+hide Client circle
+
+Client -right-> Handler: uses
+ConcreteHandler -up-|> Handler
+@enduml
