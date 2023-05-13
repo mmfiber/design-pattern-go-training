@@ -1,0 +1,14 @@
+@startuml
+class OrderFacade {}
+class OrderService {}
+class PaymentService {}
+class ShippingService {}
+
+class Client{}
+hide Client circle
+
+Client -right-> OrderFacade: uses
+OrderFacade -down-> OrderService
+OrderFacade -down-> PaymentService
+OrderFacade -down-> ShippingService
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+class Facade {}
+class classA {}
+class classB {}
+class classC {}
+
+class Client{}
+hide Client circle
+
+Client -right-> Facade: uses
+Facade -down-> classA
+Facade -down-> classB
+Facade -down-> classC
+classA -right-> classB
+classA -right-> classC
+classB -left-> classA
+classB -right-> classC
+classC -left-> classB
+
+@enduml
