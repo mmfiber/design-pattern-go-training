@@ -1,0 +1,37 @@
+@startuml
+skinparam linetype ortho
+interface Meditator {
+  {method} createColleagues
+  {method} colleagueChanged
+}
+abstract Colleague {
+  meditator Meditator
+  {method} setMeditator
+  {method} {abstract} controlColleague
+}
+class ConcreteColleague1 {
+  {method} controlColleague
+}
+class ConcreteColleague2 {
+  {method} controlColleague
+}
+class ConcreteColleague3 {
+  {method} controlColleague
+}
+class ConcreteMeditaor {
+  controlColleague1
+  controlColleague2
+  controlColleague3
+  {method} createColleagues
+  {method} colleagueChanged
+}
+
+Colleague o-left-> Meditator
+ConcreteMeditaor .up.|> Meditator
+ConcreteMeditaor o--right-|> ConcreteColleague3
+ConcreteMeditaor o--right-|> ConcreteColleague2
+ConcreteMeditaor o--right-|> ConcreteColleague1
+ConcreteColleague1 -up-|> Colleague
+ConcreteColleague2 --up-|> Colleague
+ConcreteColleague3 -up-|> Colleague
+@enduml
