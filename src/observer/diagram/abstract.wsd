@@ -1,0 +1,25 @@
+@startuml
+skinparam linetype ortho
+interface Subject {
+  observers
+  {method} addObserber()
+  {method} deleteObserber()
+  {method} notifyObserber()
+}
+interface Observer {
+  {method} update()
+}
+class ConcreteSubject {
+  observers
+  {method} addObserber()
+  {method} deleteObserber()
+  {method} notifyObserber()
+}
+class ConcreteObserver {
+  {method} update()
+}
+
+Subject o-right-> Observer: notifies
+ConcreteSubject .up.|> Subject
+ConcreteObserver .up.|> Observer
+@enduml
