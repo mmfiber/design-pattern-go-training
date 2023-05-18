@@ -16,6 +16,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/facade"
 	"github.com/mmfiber/design-pattern-go-training/src/factorymethod"
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
+	"github.com/mmfiber/design-pattern-go-training/src/memento"
 	"github.com/mmfiber/design-pattern-go-training/src/observer"
 	"github.com/mmfiber/design-pattern-go-training/src/prototype"
 	"github.com/mmfiber/design-pattern-go-training/src/singleton"
@@ -45,6 +46,7 @@ func main() {
 		chainofresponsibility.NewExecuter(),
 		facade.NewExecuter(),
 		observer.NewExecuter(),
+		memento.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{

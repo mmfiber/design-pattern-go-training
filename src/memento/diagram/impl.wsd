@@ -1,0 +1,26 @@
+@startuml
+skinparam linetype ortho
+class Editor {
+  - text: string
+  + CreateMemento()
+  + RestoreMemento(m *EditorMemento)
+  + SetText(text string)
+  + ShowText()
+}
+
+class EditorMemento {
+  - text: string
+}
+
+class History {
+  - mementos: []*EditorMemento
+  + AddMemento(m *EditorMemento)
+  + GetMemento(index int) *EditorMemento 
+  + GetLastMemento(m *EditorMemento) *EditorMemento 
+}
+
+Editor -right-> EditorMemento
+History o-> EditorMemento
+clinet -right-> History
+clinet -down-> Editor: RestoreMemento
+@enduml

@@ -1,0 +1,22 @@
+@startuml
+skinparam linetype ortho
+class Originator {
+  - state: String
+  + save(): Memento
+  + restore(memento: Memento)
+}
+
+class Memento {
+  - state: String
+}
+
+class Caretaker {
+  - originator: Originator
+  - history: Memento[]
+  + undo()
+}
+
+Originator -right-> Memento: save
+Caretaker o-> Memento
+Caretaker --> Originator: undo
+@enduml
