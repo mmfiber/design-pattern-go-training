@@ -1,0 +1,24 @@
+@startuml
+skinparam linetype ortho
+class VendingMachine {
+  state State
+}
+interface State {
+  InsertCoin()
+  SelectProduct()
+  Dispense()
+}
+class NoCoinState {
+  InsertCoin()
+  SelectProduct()
+  Dispense()
+}
+class HasCoinState {
+  InsertCoin()
+  SelectProduct()
+  Dispense()
+}
+VendingMachine o-right-> State
+NoCoinState -up-|> State
+HasCoinState -up-|> State
+@enduml

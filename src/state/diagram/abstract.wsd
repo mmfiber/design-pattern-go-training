@@ -1,0 +1,25 @@
+@startuml
+skinparam linetype ortho
+class Context {
+  state State
+  setState()
+}
+interface State {
+  methodA()
+  methodB()
+  methodC()
+}
+class ConcreteState1 {
+  methodA()
+  methodB()
+  methodC()
+}
+class ConcreteState2 {
+  methodA()
+  methodB()
+  methodC()
+}
+Context o-right-> State
+ConcreteState1 -up-|> State
+ConcreteState2 -up-|> State
+@enduml
