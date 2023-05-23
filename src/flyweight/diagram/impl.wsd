@@ -1,0 +1,24 @@
+@startuml
+interface Flyweight {
+  +Operation(extrinsicState: String)
+}
+
+class ConcreteFlyweight {
+  -intrinsicState: String
+  +Operation(extrinsicState: String)
+}
+
+class FlyweightFactory {
+  -flyweights: map<string, Flyweight>
+  +GetFlyweight(key: string): Flyweight
+}
+
+class Client {}
+hide Client circle 
+
+ConcreteFlyweight ..down.|> Flyweight
+Client -down-> ConcreteFlyweight: Operation
+Client -down-> FlyweightFactory: GetFlyweight
+FlyweightFactory o-> Flyweight
+
+@enduml
