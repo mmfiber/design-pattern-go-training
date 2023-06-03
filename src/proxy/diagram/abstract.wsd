@@ -1,0 +1,24 @@
+@startuml
+
+interface Subject {
+  {method} request1()
+  {method} request2()
+  {method} request3()
+}
+class Proxy {
+  realSubject RealSubject
+  {method} request1()
+  {method} request2()
+  {method} request3()
+}
+class RealSubject {
+  {method} request1()
+  {method} request2()
+  {method} request3()
+}
+
+Client -right-> Subject: uses
+Proxy .up.|> Subject
+RealSubject .up.|> Subject
+Proxy o-right-> RealSubject: uses
+@enduml

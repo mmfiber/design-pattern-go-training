@@ -1,0 +1,17 @@
+@startuml
+interface WebServer {
+  {method} HandleRequest(request string) string
+}
+class Proxy {
+  realWebServer RealWebServer
+  {method} HandleRequest(request string) string
+}
+class RealWebServer {
+  {method} HandleRequest(request string) string
+}
+
+Client -right-> WebServer: uses
+Proxy .up.|> WebServer
+RealWebServer .up.|> WebServer
+Proxy o-right-> RealWebServer: uses
+@enduml

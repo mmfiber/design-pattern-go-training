@@ -20,6 +20,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/memento"
 	"github.com/mmfiber/design-pattern-go-training/src/observer"
 	"github.com/mmfiber/design-pattern-go-training/src/prototype"
+	"github.com/mmfiber/design-pattern-go-training/src/proxy"
 	"github.com/mmfiber/design-pattern-go-training/src/singleton"
 	"github.com/mmfiber/design-pattern-go-training/src/state"
 	"github.com/mmfiber/design-pattern-go-training/src/strategy"
@@ -51,6 +52,7 @@ func main() {
 		memento.NewExecuter(),
 		state.NewExecuter(),
 		flyweight.NewExecuter(),
+		proxy.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{
