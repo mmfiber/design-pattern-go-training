@@ -1,0 +1,34 @@
+@startuml
+interface Command {
+  {method} execute
+}
+frame ConcreteCommand #eeeeee;line:black;line.dotted;text:black {
+  class CopyCommand {
+    App *Application
+    {method} Execute
+  }
+  class CutCommand {
+    App *Application
+    {method} Execute
+  }
+  class PasteCommand {
+    App *Application
+    {method} Execute
+  }
+  class UndoCommand {
+    App *Application
+    {method} Execute
+  }
+}
+class Application {
+	Editor *Editor
+	CommandHistory Command[]
+	{method} ExecuteCommand
+}
+
+Client -up-> ConcreteCommand: creates
+Application o-left-> Command: execute
+Client -> Application: executeCommand
+ConcreteCommand .up.|> Command
+ConcreteCommand o--> Application
+@enduml

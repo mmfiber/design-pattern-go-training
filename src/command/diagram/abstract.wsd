@@ -1,0 +1,22 @@
+@startuml
+interface Command {
+  {method} execute
+}
+class ConcreteCommand {
+  - reciever Reciever
+  {method} execute
+}
+class Reciever {
+  {method} action
+}
+class Invoker {
+	- command Command
+	{method} executeCommand
+}
+
+Client -up-> ConcreteCommand: creates
+Invoker o-left-> Command: execute
+Client -> Invoker: executeCommand
+ConcreteCommand .up.|> Command
+ConcreteCommand o-left-> Reciever
+@enduml
