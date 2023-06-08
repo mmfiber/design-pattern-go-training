@@ -1,0 +1,44 @@
+@startuml
+skinparam linetype ortho
+interface Expression {
+  +Interpret() : bool
+}
+
+class TrueExpression {
+  +Interpret() : bool
+}
+
+class FalseExpression {
+  +Interpret() : bool
+}
+
+class AndExpression {
+  -left : Expression
+  -right : Expression
+  +Interpret() : bool
+}
+
+class OrExpression {
+  -left : Expression
+  -right : Expression
+  +Interpret() : bool
+}
+
+class Client {
+  + Parse(toknes)
+}
+
+class tokens {}
+hide tokens circle
+
+Client -down-> Expression: Interpret
+Client -right-> tokens: uses
+
+Expression <|.down. TrueExpression
+Expression <|.down. FalseExpression
+Expression <|.down. AndExpression
+Expression <|.down. OrExpression
+
+AndExpression -down-> Expression
+OrExpression -down-> Expression
+@enduml

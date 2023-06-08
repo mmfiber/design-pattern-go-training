@@ -1,0 +1,25 @@
+@startuml
+skinparam linetype ortho
+interface Expression {
+  +interpret()
+}
+
+class TerminalExpression {
+  +interpret()
+}
+
+class NonTerminalExpression {
+  childrenExressions []Expression
+  +interpret()
+}
+
+class Context {}
+
+Client -down-> Expression: interpret
+Client -right-> Context: uses
+
+Expression <|.down. TerminalExpression
+Expression <|.down. NonTerminalExpression
+
+NonTerminalExpression -down-> Expression
+@enduml

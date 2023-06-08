@@ -17,6 +17,7 @@ import (
 	"github.com/mmfiber/design-pattern-go-training/src/facade"
 	"github.com/mmfiber/design-pattern-go-training/src/factorymethod"
 	"github.com/mmfiber/design-pattern-go-training/src/flyweight"
+	"github.com/mmfiber/design-pattern-go-training/src/interpreter"
 	"github.com/mmfiber/design-pattern-go-training/src/iterator"
 	"github.com/mmfiber/design-pattern-go-training/src/memento"
 	"github.com/mmfiber/design-pattern-go-training/src/observer"
@@ -55,6 +56,7 @@ func main() {
 		flyweight.NewExecuter(),
 		proxy.NewExecuter(),
 		command.NewExecuter(),
+		interpreter.NewExecuter(),
 		exit.NewExecuter(),
 	}
 	prompt := promptui.Select{
